@@ -1,23 +1,41 @@
 # Understanding Object Oriented Programming
 
-The main goal of this project is to show teach the variosu concept of object oriented programming using the php langague.
+The main goal of this project is to show the various concept of object oriented programming using the php langague and providing some hands on example.
 
 ---
 
-## Sections
+## Requirement
+
+> It is recommend to have some basic foundation knowlede of programming before starting to take this course. List of things to understand before looking to this repository are as follows:
+
+- Variables
+- Data types
+- Functions
+- Operators
+- loops and itertaions
+
+---
+
+## Contents
 
 - [Class](#class)
-  - [Constructor](##constructor)
-  - [Destructor](##destructor)
+  - [Access Modifiers](##access-modifiers)
+  - [Static Method And Properties](#static-method-and-properties)
+  - [Magic Methods](##magic-method)
+    - [Constructor](##constructor)
+    - [Destructor](##destructor)
+    - [call](##call)
+    - [call static](##call-static)
+    - [Get](##get)
+    - [Set](##set)
+    - [ToString](##tostring)
 - [Inheritance](#inheritance)
 - [Polymorphism](#polymorphism)
-- [Overloading](#overloading)
-- [Encapsulation](#encapsulation)
+  - [Overloading](#overloading)
+  - [Overriding](#overreding)
 - [Constants](#constants)
 - [Abstract Classes](#abstract-classes)
 - [Traits](#traits)
-- [Static Method](#static-method)
-- [Static Properties](#static-properties)
 
 ---
 
@@ -32,6 +50,24 @@ The main goal of this project is to show teach the variosu concept of object ori
 
        }
 ```
+
+---
+
+## Access Modifiers
+
+> Todo
+
+---
+
+## Static Method And Properties
+
+> Todo
+
+---
+
+### Magic Method
+
+> Class
 
 ---
 
@@ -52,7 +88,35 @@ The main goal of this project is to show teach the variosu concept of object ori
 
 ### Destructor
 
-t
+> A destructor in a class refers to special type of function which will be called automatically whenever an object is deleted or goes out of scope.
+
+---
+
+### Call
+
+> A destructor in a class refers to special type of function which will be called automatically whenever an object is deleted or goes out of scope.
+
+---
+
+### Call Static
+
+> A destructor in a class refers to special type of function which will be called automatically whenever an object is deleted or goes out of scope.
+
+---
+
+### Get
+
+> A destructor in a class refers to special type of function which will be called automatically whenever an object is deleted or goes out of scope.
+
+---
+
+### Set
+
+> A destructor in a class refers to special type of function which will be called automatically whenever an object is deleted or goes out of scope.
+
+---
+
+### ToString
 
 > A destructor in a class refers to special type of function which will be called automatically whenever an object is deleted or goes out of scope.
 
@@ -70,15 +134,17 @@ t
 
 ---
 
-## Overloading
+### Overloading
 
 > Todo.
 
 ---
 
-## Encapsulation
+### Overriding
 
-> Todo
+> Todo.
+
+---
 
 ---
 
@@ -95,18 +161,6 @@ t
 ---
 
 ## Traits
-
-> Todo.
-
----
-
-## Static Method
-
-> Todo
-
----
-
-## Static Properties
 
 > Todo.
 
