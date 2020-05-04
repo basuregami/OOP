@@ -5,6 +5,7 @@ class UserService {
 
     public $firstName;
     public $lastName;
+    public $emai;
 
    public static function registerUser(
      string $firtName,
@@ -28,5 +29,5 @@ class UserService {
 $user = UserService::registerUser('John', 'Legend', 'johnlegend@example.com');
 
 
-
-//
+// ** note
+// 1) To access the static method and properties of class we don't have to creat the object of class

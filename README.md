@@ -35,6 +35,7 @@ The main goal of this project is to show the various concept of object oriented 
   - [Overriding](#overreding)
 - [Constants](#constants)
 - [Abstract Classes](#abstract-classes)
+- [Interface](#interface)
 - [Traits](#traits)
 
 ---
@@ -109,89 +110,241 @@ Example
 Example
 
 ```php
-      use App/Model/User;
+  class HelloWorld {
 
-       class UserService {
+    public static $message;
 
-           public $firstName;
-           public $lastName;
+    public static function getMessage()
+    {
+      return 'This is the personalized message set by you. '. self::$message . ' ' ;
+    }
+  }
 
-          public static function registerUser(
-            string $firtName,
-            string $lastName,
-            string $email;
+  HelloWorld::$message = 'Hi! This is my first use of the static proeprty in the class.';
+  $messageWithMyText = HelloWorld::getMessage();
 
-          )
-          {
-              $data['first_name'] = $firName;
-              $data['last_name'] = $lastName;
-              $data['email'] = $email;
-              $user = User::create($data);
-              if(!$user) {
-                throw new Exception('user registration service is down');
-              }
-              return $user;
-
-          }
-       }
+  echo $messageWithMyText;
 ```
 
 ---
 
 ### Magic Method
 
-> Class
+> Magic method are tje special type of function in a class they get excuted automatically upon the creation of the object.
+> Magic method always begins with 2 underscores(\_\_).
+> List of magic method supported by PHP.
 
----
+- \_\_construct()
+- \_\_destruct()
+- \_\_call($methodName, $arguments)
+- \_\_callStatic($methodName, $arguments)
+- \_\_get(\$property)
+- \_\_set($property, $value)
+- \_\_isset(\$content)
+- \_\_unset(\$content)
+- \_\_sleep()
+- \_\_wakeup()
+- \_\_toString()
+- \_\_invoke()
+- \_\_set_state(\$array)
+- \_\_clone()
+- \_\_debuginfo()
 
 ### Constructor
 
-> A constructor in a class allows us to initizlize an object's with additonal properties upon creation of the object. The construct function start with two undersoces (\_\_)!. Example
+> A constructor is a magic method in a class which get calls automatically upon the createion of the object. It helps us to initalized the class with some additional properties defined by us.
+> Any number of arguments can be defined here that will should be passed while creating the object.
 
 ```php
-       class Test {
+       class Sample {
            public function function __construct(){
-
+             echo "I get call while creating object of this call";
+             echo '<br/>';
+             echo "you can pass be any number of parameter if you want";
            }
 
        }
+
+       $obj = new sample();
 ```
 
 ---
 
 ### Destructor
 
-> A destructor in a class refers to special type of function which will be called automatically whenever an object is deleted or goes out of scope.
+> A destructor in a class refers to special type of function which will be called automatically whenever
+> an object is deleted or goes out of scope.
+
+```php
+    class sample {
+
+      public function __construct() {
+        echo "Constructor initialised"." ";
+      }
+
+      public function someUserDefinedFunction() {
+        echo "User defined function "." ";
+      }
+
+      public function __destruct() {
+         echo "after user definition, object gets destroyed automatically"." ";
+      }
+  }
+
+  $obj= new sample();
+   $obj->user_def();
+
+  //check object is destroyed or not
+  echo is_object($obj)."";
+
+  // Here the __destruct() function is automatically call at the end of the program
+
+```
 
 ---
 
 ### Call
 
-> A destructor in a class refers to special type of function which will be called automatically whenever an object is deleted or goes out of scope.
+> A call is a magic method in a class which get calls automatically when an undefined or inaccessible
+> method is called. This function takes two argument where first arguments represent the name of
+> function that is being called and second arugument represent the parameter passed to the function.
+
+```php
+  class Sample {
+
+    public function someUserDefinedFunction()
+    {
+      return "I'm user defined function";
+    }
+
+    public function __call($methodName, $arguments)
+    {
+      echo "$methodName function is not defined on the Sample class";
+    }
+  }
+
+  $obj = new Sample();
+  $obj->someUserDefinedFunction();
+
+  $obj->notAvaiableFunction(); // when this method is called, call magic method get invoked.
+```
 
 ---
 
 ### Call Static
 
-> A destructor in a class refers to special type of function which will be called automatically whenever an object is deleted or goes out of scope.
+> A call static is a magic method in a class which get calls automatically when an undefined or
+> inaccessible method is called statically.This function takes two argument where first arguments
+> represent the name of function that is being called and second arugument represent the parameter
+> passed to the function.
+
+```php
+  class Sample {
+
+    public function someUserDefinedFunction()
+    {
+      return "I'm user defined function";
+    }
+
+    public function __callSatic($methodName, $arguments)
+    {
+      echo "$methodName function is not defined on the Sample class";
+    }
+  }
+
+
+  Sample::notAvaiableFunction(); // when this method is called, callstatic magic method get invoked.
+```
 
 ---
 
 ### Get
 
-> A destructor in a class refers to special type of function which will be called automatically whenever an object is deleted or goes out of scope.
+> A get method is a magic method in a class which get automatically invoke when accessing the undefined
+> or unaccessable property in a class. This method is used for getting dynamically class properties value;
+
+```php
+
+  class Test {
+
+    private $name = 'john';
+
+    public function __get($propertyName)
+    {
+      if($propertyName == 'name') {
+        return $this->name;
+      }
+      return "$propertyName property is not defined";
+    }
+  }
+
+$obj = new Test();
+
+echo $obj->name; // if we remove __get method error will be thrown since we can't access the private property from class.
+
+```
 
 ---
 
 ### Set
 
-> A destructor in a class refers to special type of function which will be called automatically whenever an object is deleted or goes out of scope.
+> A set method is a magic method which get invokes when we putting values for any undefined or unaccessible property in a class.
+> This method is used to dynamically putting values for class proprties.
+
+```php
+
+  class Test {
+
+    private $name = 'john';
+
+    public function __set($propertyName, $value)
+    {
+      if($propertyName == 'name') {
+        return $this->name;
+      }
+      $this->$propertyName = $value;
+    }
+  }
+
+$obj = new Test();
+
+echo $obj->name = 'lucy';
+echo $obj->email = 'lucifier@example.com';
+```
 
 ---
 
 ### ToString
 
-> A destructor in a class refers to special type of function which will be called automatically whenever an object is deleted or goes out of scope.
+> This magic method will be invoked when we using echo method to print an object directly. This method is
+> expected to return a string value using the instance of the class.
+
+```php
+
+  class Student {
+
+    public $studentName;
+
+    public $registrationNumber;
+
+    public function __construct($studentName, $registrationNumber)
+    {
+      $this->studentName = $studentName;
+      $this->registrationNumber = $registrationNumber;
+    }
+
+    public function __toString()
+    {
+      echo "This method get called when you echo the object of this class";
+    }
+
+  }
+
+  $obj = new Student('John',123456);
+  echo $obj;
+
+
+```
 
 ---
 
@@ -228,6 +381,12 @@ Example
 ---
 
 ## Abstract Classes
+
+> Todo
+
+---
+
+## Interface
 
 > Todo
 

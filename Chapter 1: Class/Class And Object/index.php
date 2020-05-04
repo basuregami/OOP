@@ -37,7 +37,7 @@ class User {
   
 }
 
-$user = new User(); // Object
+$user = new User(); // create Object from user class
 $user->setFirstName('John');
 $user->setLastName('Legend');
 $user->setEmail('johnlegend@example.com');
