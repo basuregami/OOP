@@ -142,12 +142,12 @@ Example
 - \_\_set($property, $value)
 - \_\_isset(\$content)
 - \_\_unset(\$content)
-- \_\_sleep()
+- \_\_sleep()\*\*\*\*
 - \_\_wakeup()
 - \_\_toString()
 - \_\_invoke()
 - \_\_set_state(\$array)
-- \_\_clone()
+- \_\_clone()\*\*\*\*
 - \_\_debuginfo()
 
 ### Constructor
