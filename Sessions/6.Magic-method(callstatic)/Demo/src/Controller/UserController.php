@@ -23,6 +23,15 @@ class UserController {
 		return 'Unable to create user';
 	}
 
-	
+	public function registerUser(array $request)
+	{
+		$user = UserModel::create($request);
+		if($user) {
+			return 'User successfully registered';
+
+		}
+		return 'Unable to create user';
+
+	}
 
 }

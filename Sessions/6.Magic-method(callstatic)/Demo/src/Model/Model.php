@@ -33,6 +33,10 @@ abstract class Model {
 
 	}
 
+	public function __callStatic($methodName, $arguments)
+	{
+		return (new static)->$method(...$parameters);
+	}
 
 	public function __set($propertyName, $value)
 	{
@@ -62,4 +66,8 @@ abstract class Model {
 
 	}
 
+	private function create($param1, $param2)
+	{
+		return "i am called";
+	}
 }
