@@ -24,5 +24,5 @@ $data2 = [
 ];
 
 $userObj2 = new UserController();
-print_r($userObj2->registerUser());
+print_r($userObj2->registerUser($data2));
 // echo $userObj2->registerUser($data);

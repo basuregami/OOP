@@ -16,9 +16,9 @@ abstract class Model {
 
 	public function __call($methodName, $arguments) 
 	{	
-		if(!$methodName == 'save')
+		if($methodName != 'save')
 		{
-			throw new \Exception("$propertyName is not defined in the model");	
+			throw new \Exception("$methodName is not defined in the model");	
 		}
 		$this->getFieldNameAndValue();
 
@@ -26,16 +26,14 @@ abstract class Model {
 
 		echo $sql;
 		echo '<br/>';
-
 		//execute this sql
-
 		return true;
 
 	}
 
 	public function __callStatic($methodName, $arguments)
 	{
-		return (new static)->$method(...$parameters);
+		return static::$methodName(...$arguments);
 	}
 
 	public function __set($propertyName, $value)
@@ -66,8 +64,9 @@ abstract class Model {
 
 	}
 
-	private function create($param1, $param2)
+	private function create($requsest)
 	{
-		return "i am called";
+		// some logic over here;
+		return 'here';
 	}
 }

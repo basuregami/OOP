@@ -18,7 +18,7 @@ abstract class Model {
 	{	
 		if(!$methodName == 'save')
 		{
-			throw new \Exception("$propertyName is not defined in the model");	
+			throw new \Exception("$methodName is not defined in the model");	
 		}
 		$this->getFieldNameAndValue();
 
