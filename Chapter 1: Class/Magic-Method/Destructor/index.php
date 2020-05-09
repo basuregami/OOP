@@ -33,4 +33,4 @@ class Employee {
 
 $emp = new Employee("Dwight Graham", "dwightgraham@example.com", "Service", "Manager");
 
-//ater the object is created the destruct magic method is automatically called
+//after the employee object is created the destruct magic method is automatically called

@@ -43,4 +43,5 @@ $data = [
 $user = new UserController();
 $user->createUser($data);
 
-//constructor helps us to set the properties of the class while creatingt the object. Once the object is initialized, the constructor is automatically called.
+//constructor helps us to set the properties of the class while creatingt the object. 
+//Once the object is initialized, the constructor is automatically called.
