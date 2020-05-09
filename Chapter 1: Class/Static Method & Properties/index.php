@@ -2,7 +2,8 @@
 // import user model class use App/Model/User;
 
 class UserService {
-
+    
+    public static $staticProperty = 'some value';
     public $firstName;
     public $lastName;
     public $emai;
@@ -27,6 +28,8 @@ class UserService {
 
 //Usercontroller create method body 
 $user = UserService::registerUser('John', 'Legend', 'johnlegend@example.com');
+
+$staticProperty = UserSerive::$staticProperty;
 
 
 // ** note
