@@ -33,7 +33,16 @@ abstract class Model {
 
 	public function __callStatic($methodName, $arguments)
 	{
+	// 	return (new static)->$methodName(...$arguments);
+
+
+	// 	$user = new UserModel();
+	// 	$user->create(...$arguments);
+
+		
 		return static::$methodName(...$arguments);
+
+		self::create(...$arguments);
 	}
 
 	public function __set($propertyName, $value)
